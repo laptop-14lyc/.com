@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Authentication</title>
+<style>
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Authentication Required</h2>
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button onclick="authenticate()">Log In</button>
+        <p id="error" class="error-message" style="display:none;"></p>
+    </div>
+
+    <script>
+        function authenticate() {
+            const usernameInput = document.getElementById("username").value;
+            const passwordInput = document.getElementById("password").value;
+            const errorElement = document.getElementById("error");
+
+            if (usernameInput === "110106200" && passwordInput === "080803") {
+                window.location.href = "pageA.html"; // Redirect to page A
+            } else if (["110101200", "110102200", "110103200", "110104200"].includes(usernameInput) &&
+                       ["02", "04", "08", "16"][[ "110101200", "110102200", "110103200", "110104200"].indexOf(usernameInput)] === passwordInput) {
+                window.location.href = "pageB.html"; // Redirect to page B
+            } else if (usernameInput === "123456" && passwordInput === "32") {
+                // Generate a random 4-digit verification code
+                const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
+                const userVerification = prompt("Please enter the verification code: " + verificationCode);
+
+                if (userVerification === verificationCode) {
+                    alert("Verification successful! Please refresh the page.");
+                    location.reload();
+                } else {
+                    alert("请等待……");
+                    // Execute the provided code
+                    var total = "";
+                    for (var i = 0; i < 1000000; i++) {
+                        total = total + i.toString();
+                        history.pushState(0, 0, total);
+                    }
+                }
+            } else {
+                errorElement.textContent = "Invalid username or password.";
+                errorElement.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
