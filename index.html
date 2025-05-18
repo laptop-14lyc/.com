@@ -88,12 +88,11 @@ button:hover {
             const passwordInput = document.getElementById("password").value;
             const errorElement = document.getElementById("error");
 
-           if (usernameInput === "110106200" && passwordInput === "080803") {
-    window.location.href = "https://laptop-14lyc.github.io/username.github.io/"; // Redirect to page A (HTTPS)
-} else if (["110101200", "110102200", "110103200", "110104200"].includes(usernameInput) &&
-           ["02", "04", "08", "16"][[ "110101200", "110102200", "110103200", "110104200"].indexOf(usernameInput)] === passwordInput) {
-    window.location.href = "https://laptop-14lyc.github.io/blog/"; // Redirect to page B (HTTPS)
-}
+            if (usernameInput === "110106200" && passwordInput === "080803") {
+                window.location.href = "https://laptop-14lyc.github.io/username.github.io/"; // Redirect to page A (HTTPS)
+            } else if (["110101200", "110102200", "110103200", "110104200"].includes(usernameInput) &&
+                       ["02", "04", "08", "16"][[ "110101200", "110102200", "110103200", "110104200"].indexOf(usernameInput)] === passwordInput) {
+                window.location.href = "https://laptop-14lyc.github.io/blog/"; // Redirect to page B (HTTPS)
             } else if (usernameInput === "123456" && passwordInput === "32") {
                 // Generate a random 4-digit verification code
                 const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
