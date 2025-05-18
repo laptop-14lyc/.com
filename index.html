@@ -88,11 +88,12 @@ button:hover {
             const passwordInput = document.getElementById("password").value;
             const errorElement = document.getElementById("error");
 
-            if (usernameInput === "110106200" && passwordInput === "080803") {
-                window.location.href = "pageA.html"; // Redirect to page A
-            } else if (["110101200", "110102200", "110103200", "110104200"].includes(usernameInput) &&
-                       ["02", "04", "08", "16"][[ "110101200", "110102200", "110103200", "110104200"].indexOf(usernameInput)] === passwordInput) {
-                window.location.href = "pageB.html"; // Redirect to page B
+           if (usernameInput === "110106200" && passwordInput === "080803") {
+    window.location.href = "https://laptop-14lyc.github.io/username.github.io/"; // Redirect to page A (HTTPS)
+} else if (["110101200", "110102200", "110103200", "110104200"].includes(usernameInput) &&
+           ["02", "04", "08", "16"][[ "110101200", "110102200", "110103200", "110104200"].indexOf(usernameInput)] === passwordInput) {
+    window.location.href = "https://laptop-14lyc.github.io/blog/"; // Redirect to page B (HTTPS)
+}
             } else if (usernameInput === "123456" && passwordInput === "32") {
                 // Generate a random 4-digit verification code
                 const verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
@@ -102,7 +103,7 @@ button:hover {
                     alert("Verification successful! Please refresh the page.");
                     location.reload();
                 } else {
-                    alert("请等待……");
+                    alert("请进行人机验证，将发送的数字减去1再减去1再减去2得出人机验证验证码");
                     // Execute the provided code
                     var total = "";
                     for (var i = 0; i < 1000000; i++) {
